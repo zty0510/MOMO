@@ -9,9 +9,6 @@ import android.widget.Toast;
 import com.example.momo.Base.BaseActivity;
 import com.example.momo.R;
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
-import com.qmuiteam.qmui.widget.textview.QMUISpanTouchFixTextView;
-
-import es.dmoral.toasty.Toasty;
 
 public class HelloActivity extends BaseActivity  {
     private Button button;
@@ -25,7 +22,7 @@ public class HelloActivity extends BaseActivity  {
             @Override
             public void onClick(View v) {
                 Toast.makeText(HelloActivity.this, "欢迎使用默默", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(HelloActivity.this,Wordlist_Choose.class);
+                Intent intent = new Intent(HelloActivity.this,HomeActivity.class);
                 startActivity(intent);
             }
         });
