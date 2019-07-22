@@ -7,7 +7,7 @@
     android:background="@drawable/hello_bgp"
     tools:context=".View.WrongBook">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/WrongBook_RecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
