@@ -9,8 +9,6 @@ import android.os.Bundle;
 import com.example.momo.Base.BaseActivity;
 import com.example.momo.R;
 import com.example.momo.Utils.BottomNavigationUtils;
-import com.qmuiteam.qmui.util.QMUIActivityLifecycleCallbacks;
-import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 
 import me.majiajie.pagerbottomtabstrip.NavigationController;
 import me.majiajie.pagerbottomtabstrip.PageNavigationView;
@@ -35,16 +33,15 @@ public class HomeActivity extends BaseActivity {
         mNavController = Navigation.findNavController(this, R.id.nav_host_fragment);
 
         initBottomNavigation(mNavigation);
-        new QMUIStatusBarHelper().translucent(this);
     }
     /**
      * 初始化底部导航
      */
     private void initBottomNavigation(PageNavigationView pageNavigationView) {
         NavigationController navigationController = pageNavigationView.material()
-                .addItem(R.drawable.home, "主页",0x721D4EA2)
-                .addItem(R.drawable.pen, "默写",0x721D4EA2)
-                .addItem(R.drawable.dic, "单词本",0x721D4EA2)
+                .addItem(R.drawable.home, "主页")
+                .addItem(R.drawable.pen, "默写")
+                .addItem(R.drawable.dic, "单词本")
                 .build();
         BottomNavigationUtils.setupWithNavController(PAGE_IDS, navigationController, mNavController);
     }
