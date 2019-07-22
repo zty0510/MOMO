@@ -2,9 +2,10 @@ package com.example.momo.Utils;
 
 import android.app.Activity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Count {
+public class Count implements Serializable {
     public int getCorrcet() {
         return corrcet;
     }

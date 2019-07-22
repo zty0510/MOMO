@@ -4,11 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.momo.Adapter.Dic_Adapter;
+import com.example.momo.Base.BaseActivity;
 import com.example.momo.R;
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
 
-public class Dictionary_Choose extends AppCompatActivity {
+public class Dictionary_Choose extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

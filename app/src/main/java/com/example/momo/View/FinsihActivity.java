@@ -7,31 +7,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.momo.Base.BaseActivity;
 import com.example.momo.R;
+import com.example.momo.Utils.Count;
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class FinsihActivity extends AppCompatActivity {
+public class FinsihActivity extends BaseActivity {
     private TextView TV_Corrcetnumber;
     private TextView TV_WrongNumber;
     private Button show_WrongBook;
-    private int CorrectNumber;
-    private int WrongNumber;
-    private ArrayList<String> WrongList_English;
-    private ArrayList<String> WrongList_Chinese;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finsih);
         QMUIStatusBarHelper qmuiStatusBarHelper = new QMUIStatusBarHelper();
         qmuiStatusBarHelper.translucent(this);
-        CorrectNumber = getIntent().getIntExtra("Correct",0);
-        WrongNumber = getIntent().getIntExtra("Wrong",0);
-        WrongList_Chinese = getIntent().getStringArrayListExtra("WrongList_Chinese");
-        WrongList_English = getIntent().getStringArrayListExtra("WrongList_English");
+        final Count count = (Count) getIntent().getSerializableExtra("Count");
+        int CorrectNumber = count.getCorrcet();
+        int WrongNumber = count.getWrong();
         TV_Corrcetnumber = findViewById(R.id.TV_Corrcetnumber);
         TV_WrongNumber =  findViewById(R.id.TV_Wrongnumber);
         show_WrongBook = findViewById(R.id.show_WrongBook);
@@ -41,8 +38,7 @@ public class FinsihActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FinsihActivity.this,WrongBook.class);
-                intent.putStringArrayListExtra("WrongList_Chinese",WrongList_Chinese );
-                intent.putStringArrayListExtra("WrongList_English",WrongList_English );
+                intent.putExtra("Count",count);
                 startActivity(intent);
                 finish();
             }

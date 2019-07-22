@@ -23,13 +23,15 @@ import static android.content.ContentValues.TAG;
 public class Word_Presenter implements IPresenter_word {
     private IView_WordActivity iView_wordActivity;
     private String[][] wordlist ;
+    private Context context;
     WordSource wordSource = new WordSource();
     Count count = new Count();
 
 
     public  Word_Presenter(IView_WordActivity view){
         iView_wordActivity = view;
-        wordSource.setContext(iView_wordActivity.getContext());
+        context = iView_wordActivity.getContext();
+        wordSource.setContext(context);
     }
     public void setDic(String page) throws InterruptedException {
         wordSource.setPages(page);
@@ -45,8 +47,9 @@ public class Word_Presenter implements IPresenter_word {
         if (position < wordlist.length - 1){
             String text = wordlist[position + 1][0];
             iView_wordActivity.setText(text);
+            Log.d(TAG, count.toString());
         }else{
-            Toast.makeText(iView_wordActivity.getContext(),"这是最后一个单词啦", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"这是最后一个单词啦", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -62,7 +65,7 @@ public class Word_Presenter implements IPresenter_word {
             // Log.d(TAG, "wrong");
             count.addWrong(currentChinese,correctEnglish);
             Log.d(TAG, "错误"+ String.valueOf(count.getWrong()));
-            Toasty.error(iView_wordActivity.getContext(),"答案错误，应为" + correctEnglish,Toasty.LENGTH_LONG).show();
+            Toasty.error(context,"答案错误，应为" + correctEnglish,Toasty.LENGTH_LONG).show();
 
         }
         if (position < wordlist.length - 1){
@@ -70,25 +73,17 @@ public class Word_Presenter implements IPresenter_word {
             iView_wordActivity.setText(text);
             iView_wordActivity.clearInputText();
         }else{
-            Toast.makeText(iView_wordActivity.getContext(),"答题完成", Toast.LENGTH_SHORT).show();
-            iView_wordActivity.getContext();
-            Intent intent =  new Intent(iView_wordActivity.getContext(), FinsihActivity.class);
-            intent.putExtra("Correct",count.getCorrcet());
-            intent.putExtra("Wrong",count.getWrong());
-            intent.putStringArrayListExtra("WrongList_Chinese",count.getWrongList_Chinese());
-            intent.putStringArrayListExtra("WrongList_English",count.getWrongList_English());
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
-            iView_wordActivity.getContext().startActivity(intent);
-            //iView_wordActivity.getActivity().finish();
-
+           foreSubmit();
         }
     }
+
+    @Override
+    public void foreSubmit() {
+        Toast.makeText(context,"答题完成", Toast.LENGTH_SHORT).show();
+        Intent intent =  new Intent(context, FinsihActivity.class);
+        intent.putExtra("Count",count);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
+        iView_wordActivity.getActivity().finish();
+        context.startActivity(intent);
+    }
 }
-
-
-
-
-
-
-
-

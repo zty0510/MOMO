@@ -1,6 +1,5 @@
 package com.example.momo.View;
 
-import android.app.Activity;
 import android.content.Context;
 
 public interface IView_WordActivity {
@@ -10,5 +9,5 @@ public interface IView_WordActivity {
     public Context getContext();
     public void setEditText(String text);
     public void clearInputText();
-    public Activity getActivity();
+    public WordActivity getActivity();
 }

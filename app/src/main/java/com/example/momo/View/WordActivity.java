@@ -1,9 +1,6 @@
 package com.example.momo.View;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -13,17 +10,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.momo.Base.BaseActivity;
 import com.example.momo.Presenter.IPresenter_word;
 import com.example.momo.Presenter.Word_Presenter;
 import com.example.momo.R;
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 
-public class WordActivity extends AppCompatActivity implements IView_WordActivity {
+public class WordActivity extends BaseActivity implements IView_WordActivity {
     private IPresenter_word iPresenter_word;
     private TextView tv_word_chinese;
     private EditText inputText;
     private  Button nextWord;
     private String page;
+    private Button foreSubmit;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +33,7 @@ public class WordActivity extends AppCompatActivity implements IView_WordActivit
         tv_word_chinese = findViewById(R.id.TV_Word_Chinese);
         inputText = findViewById(R.id.Edit_InputText);
         nextWord = findViewById(R.id.TV_nextword);
+        foreSubmit = findViewById(R.id.foreSubmit);
         inputText.setImeOptions(EditorInfo.IME_ACTION_NEXT);
         QMUIStatusBarHelper qmuiStatusBarHelper = new QMUIStatusBarHelper();
         qmuiStatusBarHelper.translucent(this);
@@ -42,6 +42,12 @@ public class WordActivity extends AppCompatActivity implements IView_WordActivit
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        foreSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iPresenter_word.foreSubmit();
+            }
+        });
 
         nextWord.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +95,7 @@ public class WordActivity extends AppCompatActivity implements IView_WordActivit
 
     @Override
     public Context getContext() {
-        return getBaseContext();
+        return getApplicationContext();
     }
 
 
@@ -101,8 +107,10 @@ public class WordActivity extends AppCompatActivity implements IView_WordActivit
         inputText.setText("");
     }
 
-    @Override
-    public Activity getActivity() {
-        return this.getActivity();
+
+    public WordActivity getActivity() {
+        return this;
     }
+
+
 }

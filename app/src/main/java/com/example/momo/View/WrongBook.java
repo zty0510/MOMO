@@ -6,12 +6,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.momo.Adapter.WrongBook_Adapter;
+import com.example.momo.Base.BaseActivity;
 import com.example.momo.R;
+import com.example.momo.Utils.Count;
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 
 import java.util.ArrayList;
 
-public class WrongBook extends AppCompatActivity {
+public class WrongBook extends BaseActivity {
     private RecyclerView WrongBook;
     private ArrayList<String> WrongList_English;
     private ArrayList<String> WrongList_Chinese;
@@ -22,8 +24,9 @@ public class WrongBook extends AppCompatActivity {
         setContentView(R.layout.activity_wrong_book);
         QMUIStatusBarHelper qmuiStatusBarHelper = new QMUIStatusBarHelper();
         qmuiStatusBarHelper.translucent(this);
-        WrongList_Chinese = getIntent().getStringArrayListExtra("WrongList_Chinese");
-        WrongList_English = getIntent().getStringArrayListExtra("WrongList_English");
+        Count count = (Count) getIntent().getSerializableExtra("Count");
+        WrongList_Chinese = count.getWrongList_Chinese();
+        WrongList_English = count.getWrongList_English();
         WrongBook = findViewById(R.id.WrongBook_RecyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         WrongBook.setLayoutManager(linearLayoutManager);

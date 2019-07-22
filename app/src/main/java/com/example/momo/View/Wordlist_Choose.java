@@ -9,13 +9,14 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.momo.Adapter.PageAdapter;
+import com.example.momo.Base.BaseActivity;
 import com.example.momo.Model.WordSource;
 import com.example.momo.R;
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 
 import java.util.ArrayList;
 
-public class Wordlist_Choose extends AppCompatActivity {
+public class Wordlist_Choose extends BaseActivity {
     private ArrayList<String> PageList = new ArrayList<String>() ;
     private RecyclerView recyclerView ;
 

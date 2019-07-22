@@ -47,4 +47,14 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="149dp"
         android:text="下一个单词" />
+
+    <Button
+        android:id="@+id/foreSubmit"
+        android:layout_width="118dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="595dp"
+        android:layout_marginEnd="157dp"
+        android:text="提前完成" />
 </RelativeLayout>
