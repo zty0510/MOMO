@@ -1,7 +1,6 @@
 package com.example.momo.View;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,10 +10,6 @@ import com.example.momo.Base.BaseActivity;
 import com.example.momo.R;
 import com.example.momo.Utils.Count;
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 
 public class FinsihActivity extends BaseActivity {
     private TextView TV_Corrcetnumber;
