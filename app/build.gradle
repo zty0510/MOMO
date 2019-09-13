@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.momo"
+        applicationId "com.adg.momo"
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 2
@@ -42,4 +42,5 @@ dependencies {
 // navigation
     implementation 'androidx.navigation:navigation-fragment:2.0.0-rc02'
     implementation 'androidx.navigation:navigation-ui:2.0.0-rc02'
+
 }

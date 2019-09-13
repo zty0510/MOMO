@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@id/nav_home_fragment">
+    app:startDestination="@id/nav_writing_fragment">
     <fragment
         android:id="@+id/nav_home_fragment"
-        android:name="com.example.momo.View.Nav_Home_Fragment"
+        android:name="com.adg.momo.View.Fragement.Nav_Home_Fragment"
         android:label="NavigationComponentPageAFragment" />
     <fragment
         android:id="@+id/nav_dic_fragment"
-        android:name="com.example.momo.View.Nav_Dic_Fragment"
-        android:label="NavigationComponentPageBFragment" />
+        android:name="com.adg.momo.View.Fragement.Nav_Dic_Fragment"
+        android:label="NavigationComponentPageBFragment" >
+        <action
+            android:id="@+id/action_nav_dic_fragment_to_nav_writing_fragment"
+            app:destination="@id/nav_writing_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_writing_fragment"
-        android:name="com.example.momo.View.Nav_Writing_Fragment"
-        android:label="NavigationComponentPageCFragment" />
+        android:name="com.adg.momo.View.Fragement.Nav_Writing_Fragment"
+        android:label="NavigationComponentPageCFragment" >
+        <action
+            android:id="@+id/action_nav_writing_fragment_to_nav_dic_fragment3"
+            app:destination="@id/nav_dic_fragment" />
+    </fragment>
 </navigation>

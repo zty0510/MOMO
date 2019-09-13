@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.momo">
-
-    <uses-permission android:name="android.permission.INTERNET" />
+    package="com.adg.momo">
 
     <application
         android:allowBackup="true"
@@ -10,23 +8,31 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/actions" />
-
-        <activity android:name=".View.HomeActivity" />
-        <activity android:name=".View.WrongBook" />
-        <activity android:name=".View.FinsihActivity" />
-        <activity android:name=".View.WordActivity" />
+        <activity android:name=".View.ModeChoose"></activity>
+        <activity
+            android:name=".View.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".View.WrongBook"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".View.FinsihActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".View.WordActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".View.Dictionary_Choose"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/QMUI.Compat.NoActionBar" />
         <activity
             android:name=".View.Wordlist_Choose"
+            android:screenOrientation="portrait"
             android:theme="@style/QMUI.Compat.NoActionBar" />
         <activity
             android:name=".View.HelloActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/QMUI.Compat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,5 +41,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

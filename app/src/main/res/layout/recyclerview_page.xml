@@ -13,6 +13,7 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/btn"
         android:gravity="center"
-        android:textColor="#2EE641"
-        android:textSize="25dp" />
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="italic"/>
 </RelativeLayout>

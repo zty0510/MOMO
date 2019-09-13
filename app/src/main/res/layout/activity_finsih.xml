@@ -1,51 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/hello_bgp"
     tools:context=".View.FinsihActivity">
 
-    <TextView
-        android:id="@+id/TV_Corrcetnumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="81dp"
-        android:text="正确个数："
-        android:textSize="55dp"
+    <Button
+        android:id="@+id/show_WrongBook"
+        android:layout_width="229dp"
+        android:layout_height="81dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
+        android:layout_marginBottom="176dp"
+        android:background="@drawable/btn"
+        android:text="点击查看错误单词"
+        android:textColor="#FFFF"
+        android:textSize="22dp"
         android:textStyle="italic"
-        tools:layout_editor_absoluteY="118dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/TV_Wrongnumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="272dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
         android:text="错误个数："
         android:textSize="55dp"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/show_WrongBook"
+    <TextView
+        android:id="@+id/TV_Corrcetnumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="88dp"
-        android:layout_marginRight="88dp"
-        android:layout_marginBottom="192dp"
-        android:background="@drawable/btn"
-        android:text="点击查看错误单词"
+        android:layout_marginTop="81dp"
+        android:text="正确个数："
+        android:textSize="55dp"
         android:textStyle="italic"
-        android:textColor="#FFFF"
-        android:textSize="22dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="118dp" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
