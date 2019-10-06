@@ -36,12 +36,20 @@ public class WordSource {
         }
         return -1;//如果未找到返回-1
     }
-    private String[] get_originlist() {
+    private String[] get_originlist(int dic) {
         InputStream in = null;
         BufferedReader reader = null;
         StringBuilder content = new StringBuilder();
         try {
-            in = viewContext.getAssets().open("wordlist/" + pages + ".dat");
+            switch (dic){
+                case 1 :
+                    in = viewContext.getAssets().open("wordlist/" + pages + ".dat");
+                    break;
+                case 2:
+                    in = viewContext.getAssets().open("six_wordlist/" + pages + ".dat");
+                    break;
+            }
+
             reader = new BufferedReader(new InputStreamReader(in));
             String line = "";
             while ((line = reader.readLine()) != null) {
@@ -63,8 +71,8 @@ public class WordSource {
 
         }
     }
-    public String[][] get_all_Wordlist(){
-            String[] originlist = get_originlist();
+    public String[][] get_all_Wordlist(int dic){
+            String[] originlist = get_originlist(dic);
             all_Wordlist = new String[originlist.length ][originlist.length ];
             for (int i = 0; i < originlist.length; i++) {
                 //Log.d(TAG, originlist[i]);
@@ -77,8 +85,8 @@ public class WordSource {
         }
 
 
-    public String[][] get_ran_Wordlist(){
-        String[] originlist = get_originlist();
+    public String[][] get_ran_Wordlist(int dic){
+        String[] originlist = get_originlist(dic);
         ran_Wordlist = new String[originlist.length ][originlist.length ];
         int[] ran_num = getRandom_Num(originlist.length);
 //        Log.d(TAG, String.valueOf(originlist));

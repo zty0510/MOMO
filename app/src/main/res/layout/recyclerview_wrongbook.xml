@@ -13,7 +13,6 @@
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="50dp"
-        android:gravity="center"
         android:text="放弃抛弃：abandon"
         android:textColor="#7741B4"
         android:textSize="24dp"

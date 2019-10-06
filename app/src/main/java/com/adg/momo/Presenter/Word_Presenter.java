@@ -27,18 +27,22 @@ public class Word_Presenter implements IPresenter_word {
         context = iView_wordActivity.getContext();
         wordSource.setContext(context);
     }
-    public void setDic(int mode,String page) throws InterruptedException {
+    public void setDic(int dic,int mode,String page) throws InterruptedException {
         wordSource.setPages(page);
         switch (mode){
             case 1 :
-                wordlist = wordSource.get_all_Wordlist();
+                wordlist = wordSource.get_all_Wordlist(dic);
                 break;
             case 2 :
-                wordlist = wordSource.get_ran_Wordlist();
+                wordlist = wordSource.get_ran_Wordlist(dic);
         }
         String text = wordlist[0][0];
         iView_wordActivity.setText(text);
     }
+
+    @Override
+
+
     public void nextWord(){
         String currentChinese = iView_wordActivity.getTV_Chinese();
         //Log.d(TAG, currentChinese);
@@ -58,14 +62,12 @@ public class Word_Presenter implements IPresenter_word {
         int position = WordSource.getIndex(wordlist,currentChinese);
         String correctEnglish = wordlist[position][1];
         if (iView_wordActivity.getEditText().equals(correctEnglish) ){
-            //Log.d(TAG, "wordJudge: 0");
             count.countCorrect();
-            Log.d(TAG, "正确"+ String.valueOf(count.getCorrcet()));
+//            Log.d(TAG, "正确"+ String.valueOf(count.getCorrcet()));
         }else {
-            // Log.d(TAG, "wrong");
             count.addWrong(currentChinese,correctEnglish);
-            Log.d(TAG, "错误"+ String.valueOf(count.getWrong()));
-            Toasty.error(context,"答案错误，应为" + correctEnglish,Toasty.LENGTH_LONG).show();
+//            Log.d(TAG, "错误"+ String.valueOf(count.getWrong()));
+            Toasty.error(context,"答案错误，应为" + correctEnglish,Toasty.LENGTH_SHORT).show();
 
         }
         if (position < wordlist.length - 1){

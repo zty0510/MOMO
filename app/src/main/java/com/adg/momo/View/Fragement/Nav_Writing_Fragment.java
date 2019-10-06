@@ -14,8 +14,6 @@ import androidx.fragment.app.Fragment;
 import com.adg.momo.R;
 import com.adg.momo.View.Wordlist_Choose;
 
-import es.dmoral.toasty.Toasty;
-
 /**
  * Created by mjj on 2018/9/26
  */
@@ -45,13 +43,16 @@ public class Nav_Writing_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Wordlist_Choose.class);
+                intent.putExtra("dic",1);
                 startActivity(intent);
             }
         });
         btn_dic_six.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toasty.normal(getActivity(),"敬请期待",Toasty.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), Wordlist_Choose.class);
+                intent.putExtra("dic",2);
+                startActivity(intent);
             }
         });
     }

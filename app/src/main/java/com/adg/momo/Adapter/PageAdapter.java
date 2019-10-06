@@ -11,12 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.adg.momo.R;
 import com.adg.momo.View.ModeChoose;
+import com.adg.momo.View.PreviewList_Activity;
 
 import java.util.ArrayList;
 
 public class PageAdapter extends RecyclerView.Adapter<PageAdapter.ViewHolder>{
 
     private  ArrayList<String> PageData;
+    private  int dic;
     static class ViewHolder extends RecyclerView.ViewHolder{
         Button WordPage;
         public ViewHolder(@NonNull View itemView) {
@@ -43,7 +45,20 @@ public class PageAdapter extends RecyclerView.Adapter<PageAdapter.ViewHolder>{
                 int page = position + 1;
                 Intent intent = new Intent(v.getContext(), ModeChoose.class);
                 intent.putExtra("page",String.valueOf(page));
+                intent.putExtra("dic",dic);
                 v.getContext().startActivity(intent);
+            }
+        });
+        viewHolder.WordPage.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int position = viewHolder.getAdapterPosition();
+                int page = position + 1;
+                Intent intent = new Intent(v.getContext(), PreviewList_Activity.class);
+                intent.putExtra("page",String.valueOf(page));
+                intent.putExtra("dic",dic);
+                v.getContext().startActivity(intent);
+                return true;
             }
         });
         return viewHolder;
@@ -57,6 +72,10 @@ public class PageAdapter extends RecyclerView.Adapter<PageAdapter.ViewHolder>{
     @Override
     public int getItemCount() {
         return PageData.size();
+    }
+
+    public void setdic(int a) {
+        dic = a;
     }
 }
 

@@ -2,6 +2,9 @@ package com.adg.momo.View;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.WindowManager;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -34,15 +37,31 @@ public class HomeActivity extends BaseActivity {
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menu_about:
+               Intent intent = new Intent(this,about.class);
+               startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         mNavigation = findViewById(R.id.navigation);
-
         mNavController = Navigation.findNavController(this, R.id.nav_host_fragment);
-
         initBottomNavigation(mNavigation);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         new QMUIStatusBarHelper().translucent(this);
     }
     /**

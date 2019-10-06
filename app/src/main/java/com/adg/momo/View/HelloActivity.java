@@ -24,7 +24,7 @@ public class HelloActivity extends BaseActivity  {
                 startActivity(intent);
                 finish();
             }
-        }, 1500);
+        }, 900);
         QMUIStatusBarHelper qmuiStatusBarHelper = new QMUIStatusBarHelper();
         qmuiStatusBarHelper.translucent(this);
     }

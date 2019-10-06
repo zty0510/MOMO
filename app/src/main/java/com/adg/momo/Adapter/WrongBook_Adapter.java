@@ -1,5 +1,7 @@
 package com.adg.momo.Adapter;
 
+import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.adg.momo.R;
 
 import java.util.ArrayList;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class WrongBook_Adapter extends RecyclerView.Adapter<WrongBook_Adapter.ViewHolder> {
     private ArrayList<String> WrongList_English;
@@ -38,7 +42,10 @@ public class WrongBook_Adapter extends RecyclerView.Adapter<WrongBook_Adapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        viewHolder.textView.setText(WrongList_Chinese.get(position)+":"+WrongList_English.get(position));
+        String str=WrongList_Chinese.get(position)+":<font color='#FF0000'><normal>"+WrongList_English.get(position)+"</normal></font>";
+//        viewHolder.textView.setText(WrongList_Chinese.get(position)+"\n"+WrongList_English.get(position));
+        viewHolder.textView.setText(Html.fromHtml(str));
+        Log.d(TAG,WrongList_Chinese.get(position) );
     }
 
     @Override

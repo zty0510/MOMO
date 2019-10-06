@@ -14,6 +14,8 @@ import com.adg.momo.R;
 
 import java.util.ArrayList;
 
+import es.dmoral.toasty.Toasty;
+
 /**
  * Created by mjj on 2018/9/26
  */
@@ -37,5 +39,6 @@ public class Nav_Dic_Fragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Toasty.normal(getActivity(),"敬请期待",Toasty.LENGTH_SHORT).show();
     }
 }

@@ -24,10 +24,12 @@ public class WordActivity extends BaseActivity implements IView_WordActivity {
     private String page;
     private Button foreSubmit;
     private int mode;
+    private int dic;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word);
+        dic = getIntent().getIntExtra("dic",1);
         page = getIntent().getStringExtra("page");
         mode = getIntent().getIntExtra("mode",1);
         Log.d("WordActivity ",page);
@@ -40,7 +42,7 @@ public class WordActivity extends BaseActivity implements IView_WordActivity {
         QMUIStatusBarHelper qmuiStatusBarHelper = new QMUIStatusBarHelper();
         qmuiStatusBarHelper.translucent(this);
         try {
-            iPresenter_word.setDic(mode,page);
+            iPresenter_word.setDic(dic,mode,page);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

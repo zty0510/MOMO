@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.adg.momo.R;
+import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 
 public class ModeChoose extends AppCompatActivity {
     private Button btn_ran_write;
@@ -17,7 +18,8 @@ public class ModeChoose extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mode_choose);
-        page = getIntent().getStringExtra("page");
+
+        new QMUIStatusBarHelper().translucent(this);
         btn_all_write = findViewById(R.id.btn_all_write);
         btn_ran_write = findViewById(R.id.btn_ran_write);
         btn_all_write.setOnClickListener(new View.OnClickListener() {
@@ -38,8 +40,10 @@ public class ModeChoose extends AppCompatActivity {
     protected void mystartActivity(int mode){
         Intent intent = new Intent(this,WordActivity.class);
         intent.putExtra("mode",mode);
-        intent.putExtra("page",page);
+        intent.putExtra("page",getIntent().getStringExtra("page"));
+        intent.putExtra("dic",getIntent().getIntExtra("dic",1));
         startActivity(intent);
+        finish();
 
     }
 }
