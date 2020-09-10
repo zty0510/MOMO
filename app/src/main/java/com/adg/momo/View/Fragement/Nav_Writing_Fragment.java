@@ -43,7 +43,7 @@ public class Nav_Writing_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Wordlist_Choose.class);
-                intent.putExtra("dic",1);
+                intent.putExtra("dic",1);//高考词汇
                 startActivity(intent);
             }
         });
@@ -51,7 +51,7 @@ public class Nav_Writing_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Wordlist_Choose.class);
-                intent.putExtra("dic",2);
+                intent.putExtra("dic",2);//六级词汇
                 startActivity(intent);
             }
         });
